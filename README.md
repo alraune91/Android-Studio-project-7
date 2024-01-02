@@ -1,6 +1,7 @@
 ![...](https://github.com/alraune91/Android-Studio-project-7/blob/main/Screenshot_4.png
 
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.WindowDecorActionBar;
 
@@ -78,25 +79,31 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.button4) {
             oper = "+";
             result = num1 + num2;
+            tvResult.setText(num1 + " "+ oper + " " + num2 + "=" + result);
         } else if (id == R.id.button3) {
             oper = "-";
             result = num1 - num2;
+            tvResult.setText(num1 + " "+ oper + " " + num2 + "=" + result);
         }
         else if (id == R.id.button2) {
             oper = "*";
             result = num1 * num2;
+            tvResult.setText(num1 + " "+ oper + " " + num2 + "=" + result);
         } else if (id == R.id.button1) {
-            if (num2!=0){
+            if (num2!=0 && num1!=0){
             oper = "/";
             result = num1 / num2;
-        } else {
+                tvResult.setText(num1 + " "+ oper + " " + num2 + "=" + result);
+        }
+            else {
                 v.setTextDirection(Integer.parseInt("0"));
                 Toast.makeText(this,"Нельзя делить на ноль",Toast.LENGTH_LONG).show();
             }
         } else if (id == R.id.button5){
             Toast.makeText(this,"Очистка",Toast.LENGTH_LONG).show();
-        }
+            tvResult.setText("");
+            etNum1.setText("");
 
-        tvResult.setText(num1 + " "+ oper + " " + num2 + "=" + result);
+        }
     }
 }
